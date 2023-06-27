@@ -2,6 +2,9 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl
 
 # general oci parameters
+variable "teleport_token_dev" {
+  description = "Teleport token value"  
+}
 
 variable "compartment_ocid" {
   description = "(Updatable) The OCID of the compartment where to create all resources"

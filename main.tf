@@ -145,7 +145,7 @@ resource "oci_core_instance" "instance" {
 
   metadata = {
     ssh_authorized_keys = var.ssh_public_keys != null ? var.ssh_public_keys : file(var.ssh_authorized_keys)
-    user_data           = var.user_data
+    user_data           = base64encode(data.cloudinit_config.example.rendered)
   }
 
   source_details {
