@@ -37,6 +37,7 @@ data "cloudinit_config" "example" {
       var.user_data,
       {
         teleport_token = var.teleport_token
+        teleport_url   = var.teleport_url
       }
     )
   }

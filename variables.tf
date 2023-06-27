@@ -6,6 +6,10 @@ variable "teleport_token" {
   description = "Teleport token value" 
   type = string 
 }
+variable "teleport_url" {
+  description = "Teleport token value" 
+  type = string 
+}
 
 variable "compartment_ocid" {
   description = "(Updatable) The OCID of the compartment where to create all resources"
