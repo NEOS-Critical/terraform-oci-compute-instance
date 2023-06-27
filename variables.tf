@@ -2,8 +2,9 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl
 
 # general oci parameters
-variable "teleport_token_dev" {
-  description = "Teleport token value"  
+variable "teleport_token" {
+  description = "Teleport token value" 
+  type = string 
 }
 
 variable "compartment_ocid" {

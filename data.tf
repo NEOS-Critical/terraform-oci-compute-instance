@@ -36,7 +36,7 @@ data "cloudinit_config" "example" {
     content = templatefile(
       var.user_data,
       {
-        teleport_token = var.teleport_token_dev
+        teleport_token = var.teleport_token
       }
     )
   }
