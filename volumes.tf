@@ -37,6 +37,11 @@ resource "oci_core_volume" "volume" {
   )
   freeform_tags = local.merged_freeform_tags
   defined_tags  = var.defined_tags
+  lifecycle {
+    ignore_changes = [
+      availability_domain
+    ]
+  }
 }
 
 ####################
