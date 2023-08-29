@@ -162,7 +162,10 @@ resource "oci_core_instance" "instance" {
   }
   lifecycle {
     ignore_changes = [
-      metadata
+      metadata,
+      availability_domain,
+      create_vnic_details,
+      source_details
     ]
   }
 }
