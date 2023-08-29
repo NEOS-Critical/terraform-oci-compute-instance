@@ -15,12 +15,12 @@ resource "oci_core_volume_backup_policy_assignment" "boot_volume_backup_policy" 
   asset_id  = oci_core_instance.instance.*.boot_volume_id[count.index]
   policy_id = local.backup_policies[var.boot_volume_backup_policy]
 
-  lifecycle {
-    ignore_changes = [
-      asset_id,
-      policy_id
-    ]
-  }
+  # lifecycle {
+  #   ignore_changes = [
+  #     asset_id,
+  #     policy_id
+  #   ]
+  # }
 }
 
 #########
@@ -37,11 +37,11 @@ resource "oci_core_volume" "volume" {
   )
   freeform_tags = local.merged_freeform_tags
   defined_tags  = var.defined_tags
-  lifecycle {
-    ignore_changes = [
-      availability_domain
-    ]
-  }
+  # lifecycle {
+  #   ignore_changes = [
+  #     availability_domain
+  #   ]
+  # }
 }
 
 ####################
@@ -53,9 +53,9 @@ resource "oci_core_volume_attachment" "volume_attachment" {
   instance_id     = oci_core_instance.instance[count.index % var.instance_count].id
   volume_id       = oci_core_volume.volume[count.index].id
   use_chap        = var.use_chap
-  lifecycle {
-    ignore_changes = [
-      instance_id
-    ]
-  }
+  # lifecycle {
+  #   ignore_changes = [
+  #     instance_id
+  #   ]
+  # }
 }
