@@ -212,4 +212,9 @@ resource "oci_core_public_ip" "public_ip" {
 
   freeform_tags = local.merged_freeform_tags
   defined_tags  = var.defined_tags
+  lifecycle {
+    ignore_changes = [
+      private_ip_id
+    ]
+  }
 }
