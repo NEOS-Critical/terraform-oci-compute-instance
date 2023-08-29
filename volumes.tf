@@ -15,12 +15,11 @@ resource "oci_core_volume_backup_policy_assignment" "boot_volume_backup_policy" 
   asset_id  = oci_core_instance.instance.*.boot_volume_id[count.index]
   policy_id = local.backup_policies[var.boot_volume_backup_policy]
 
-  # lifecycle {
-  #   ignore_changes = [
-  #     asset_id,
-  #     policy_id
-  #   ]
-  # }
+  lifecycle {
+    ignore_changes = [
+      policy_id
+    ]
+  }
 }
 
 #########
