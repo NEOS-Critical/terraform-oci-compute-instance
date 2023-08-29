@@ -160,6 +160,11 @@ resource "oci_core_instance" "instance" {
   timeouts {
     create = var.instance_timeout
   }
+  lifecycle {
+    ignore_changes = [
+      metadata
+    ]
+  }
 }
 
 ##################################
